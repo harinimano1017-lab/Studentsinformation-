@@ -438,11 +438,16 @@ th {
 
 /* Responsive Design */
 @media (max-width: 600px) {
-    /* General Rules */
-    body {
+    /* FIX 2 - PAGE BACKGROUND */
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
         overflow-x: hidden;
     }
     
+    /* General Rules */
     input, select, textarea, button {
         min-height: 44px;
         font-size: 14px;
@@ -458,12 +463,21 @@ th {
     }
     
     /* FIX 1 - HEADER */
+    .gov-header {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: var(--primary-color);
+        margin: 0;
+        padding: 12px 16px;
+    }
+
     .header-content {
         flex-direction: row;
         align-items: center;
         gap: 10px;
-        padding: 10px 16px;
-        margin-bottom: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
     }
     
     .national-emblem {
@@ -488,6 +502,11 @@ th {
 
     /* FIX 2 - NAVIGATION TABS */
     .main-nav {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: var(--primary-color);
+        margin: 0;
+        padding: 0;
         overflow-x: hidden;
     }
     
@@ -522,11 +541,19 @@ th {
 
     /* FIX 3 - FORM CONTAINER */
     main.container {
-        padding: 20px 16px;
+        width: 100%;
+        min-height: 100vh;
+        box-sizing: border-box;
+        background-color: #F9FAFB;
+        margin: 0;
+        padding: 0;
     }
     
     .card {
-        padding: 20px 16px;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 16px;
+        box-sizing: border-box;
     }
     
     /* FIX 4 - EMAIL FIELD */
@@ -582,6 +609,25 @@ th {
     #refreshCaptcha {
         width: 100%;
         height: 44px;
+    }
+    
+    /* FIX 7 - SUBMIT BUTTON */
+    .btn-primary {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .gov-footer {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 20px 16px;
     }
 
     /* FIX 7 - SUBMIT BUTTON */
