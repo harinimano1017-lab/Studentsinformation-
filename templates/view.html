@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2 class="section-title">Search Student Records</h2>
+    
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Enter Acknowledgement Number or Mobile Number...">
+        <button class="btn btn-primary" style="width: auto;" id="searchBtn">Search Records</button>
+    </div>
+
+    <div id="resultsContainer">
+        <!-- Results will be injected here via JS -->
+    </div>
+    
+    <div id="noResults" style="display: none; text-align: center; padding: 40px; color: var(--text-muted);">
+        No records found matching your search query.
+    </div>
+</div>
+
+<!-- Template for Student Card (used by JS) -->
+<template id="studentCardTemplate">
+    <div class="student-card">
+        <div class="student-card-header">
+            <h3>Student Profile</h3>
+            <span class="ack-badge" style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 4px; font-family: monospace;"></span>
+        </div>
+        <div class="student-card-body">
+            <!-- Personal Info -->
+            <div class="detail-group">
+                <div class="detail-label">Full Name</div>
+                <div class="detail-value t-name"></div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Mobile Number</div>
+                <div class="detail-value t-mobile"></div>
+            </div>
+            <div class="detail-group">
+                <div class="detail-label">Email ID</div>
+                <div class="detail-value t-email"></div>
+            </div>
+            <div class="detail-group full-width">
+                <div class="detail-label">Address</div>
+                <div class="detail-value t-address"></div>
+            </div>
+            <div class="detail-group full-width" style="background: var(--secondary-color); padding: 10px; border-radius: 4px;">
+                <div class="loc-line"><strong>District:</strong> <span class="t-district"></span></div>
+                <div class="loc-line"><strong>Taluk:</strong> <span class="t-taluk"></span></div>
+                <div class="loc-line"><strong>Village:</strong> <span class="t-village"></span></div>
+            </div>
+            
+            <!-- Academic Info -->
+            <div class="detail-group full-width">
+                <div class="detail-label" style="margin-bottom: 10px;">Academic Performance</div>
+                <table class="t-subjects-table">
+                    <thead>
+                        <tr>
+                            <th>Subject Name</th>
+                            <th>Marks</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody class="t-subjects-body">
+                    </tbody>
+                    <tbody>
+                        <tr class="summary-row">
+                            <td>Total</td>
+                            <td colspan="2" class="t-total"></td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td>Average Percentage</td>
+                            <td colspan="2" class="t-average"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>
+{% endblock %}
