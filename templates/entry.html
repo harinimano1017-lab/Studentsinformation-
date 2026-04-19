@@ -69,43 +69,45 @@
 
         <!-- Marks Details -->
         <h3 class="section-title" style="font-size: 1.1rem; margin-top: 30px;">Mark Entry</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Subject Name</th>
-                    <th>Marks</th>
-                    <th>Remarks</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="subjectTableBody">
-                <tr class="subject-row">
-                    <td><input type="text" class="sub-name-input" placeholder="Enter subject name" required></td>
-                    <td>
-                        <div class="mark-input-wrapper">
-                            <input type="number" class="mark-input" min="0" max="100" required> / 100
-                        </div>
-                    </td>
-                    <td class="remark-cell">-</td>
-                    <td><button type="button" class="btn-remove" disabled>Remove</button></td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <td colspan="4">
-                        <button id="addSubjectBtn" type="button" class="btn btn-secondary" style="margin: 0; padding: 6px 15px; font-size: 0.95rem;">+ Add Subject</button>
-                    </td>
-                </tr>
-                <tr class="summary-row">
-                    <td>Total</td>
-                    <td colspan="3" id="totalMarks">0 / 0</td>
-                </tr>
-                <tr class="summary-row">
-                    <td>Average Percentage</td>
-                    <td colspan="3" id="averageMarks">0.00 %</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject Name</th>
+                        <th>Marks</th>
+                        <th>Remarks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="subjectTableBody">
+                    <tr class="subject-row">
+                        <td><input type="text" class="sub-name-input" placeholder="Enter subject name" required></td>
+                        <td>
+                            <div class="mark-input-wrapper">
+                                <input type="number" class="mark-input" min="0" max="100" required> / 100
+                            </div>
+                        </td>
+                        <td class="remark-cell">-</td>
+                        <td><button type="button" class="btn-remove" disabled>Remove</button></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="4">
+                            <button id="addSubjectBtn" type="button" class="btn btn-secondary" style="margin: 0; padding: 6px 15px; font-size: 0.95rem;">+ Add Subject</button>
+                        </td>
+                    </tr>
+                    <tr class="summary-row">
+                        <td>Total</td>
+                        <td colspan="3" id="totalMarks">0 / 0</td>
+                    </tr>
+                    <tr class="summary-row">
+                        <td>Average Percentage</td>
+                        <td colspan="3" id="averageMarks">0.00 %</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <!-- Captcha & Submit -->
         <div style="max-width: 400px; margin: 40px auto 0;">
