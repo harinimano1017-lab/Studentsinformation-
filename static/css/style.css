@@ -198,10 +198,16 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* Table */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
 }
 
 th, td {
@@ -576,13 +582,14 @@ th {
     }
 
     /* FIX 5 - MARK ENTRY TABLE */
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
+    .table-responsive {
         width: 100%;
-        max-width: 100%;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 480px;
     }
     
     th, td {
