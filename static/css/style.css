@@ -437,38 +437,157 @@ th {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+    /* General Rules */
+    body {
+        overflow-x: hidden;
+    }
+    
+    input, select, textarea, button {
+        min-height: 44px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    label {
+        font-size: 14px;
+    }
+    
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
     }
     
+    /* FIX 1 - HEADER */
     .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        margin-bottom: 0;
+    }
+    
+    .national-emblem {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+    
+    .logo-area {
+        gap: 10px;
+    }
+    
+    .logo-area h1 {
+        font-size: 11px;
+        line-height: 1.3;
+    }
+    
+    .logo-area h1 span {
+        font-size: 15px;
+        font-weight: bold;
     }
 
+    /* FIX 2 - NAVIGATION TABS */
     .main-nav {
-        overflow-x: auto;
+        overflow-x: hidden;
+    }
+    
+    .main-nav ul {
+        flex-direction: row;
+        width: 100%;
+        white-space: normal;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .main-nav ul li {
+        flex: 1 1 50%;
+    }
+    
+    .main-nav a {
+        width: 100%;
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 13px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .main-nav a:hover, .main-nav a.active {
+        color: var(--white);
+        background-color: transparent;
+        border-bottom: 3px solid var(--white);
+        border-left-color: transparent;
     }
 
-    .main-nav ul {
+    /* FIX 3 - FORM CONTAINER */
+    main.container {
+        padding: 20px 16px;
+    }
+    
+    .card {
+        padding: 20px 16px;
+    }
+    
+    /* FIX 4 - EMAIL FIELD */
+    .email-input-group {
+        display: flex;
+        width: 100%;
+    }
+    
+    .email-input-group input {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .email-suffix {
         white-space: nowrap;
+        font-size: 13px;
+        padding: 0 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* FIX 5 - MARK ENTRY TABLE */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        min-width: 100%;
+    }
+    
+    /* Ensure columns do not squish under 480px total */
+    table {
+        min-width: 480px;
     }
 
     .student-card-body {
         grid-template-columns: 1fr;
     }
-    
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
 
+    /* FIX 6 - CAPTCHA SECTION */
     .captcha-box {
         flex-direction: column;
         align-items: stretch;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .captcha-display {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #refreshCaptcha {
+        width: 100%;
+        height: 44px;
+    }
+
+    /* FIX 7 - SUBMIT BUTTON */
+    .btn-primary {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
     }
     
     .modal-content {
