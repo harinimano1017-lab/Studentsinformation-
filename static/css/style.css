@@ -1,0 +1,437 @@
+:root {
+    --primary-color: #0B2B5E;
+    --primary-light: #1A448A;
+    --secondary-color: #F4F6F8;
+    --border-color: #E0E0E0;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --success: #2E7D32;
+    --error: #D32F2F;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #F9FAFB;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Nav */
+.gov-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px 0 0 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.national-emblem {
+    width: 65px;
+    height: 65px;
+    background-color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 3px;
+}
+
+.logo-area h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.logo-area h1 span {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 12px 20px;
+    display: inline-block;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: var(--white);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 30px 20px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(11, 43, 94, 0.1);
+}
+
+.email-input-group {
+    display: flex;
+}
+
+.email-input-group input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.email-suffix {
+    background-color: #EEE;
+    padding: 10px 12px;
+    border: 1px solid #CCC;
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: var(--text-muted);
+}
+
+.char-counter {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 5px;
+    display: block;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.selection-display {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.mark-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mark-input-wrapper input {
+    width: 80px;
+}
+
+.summary-row {
+    font-weight: 600;
+    background-color: #F8F9FA;
+}
+
+/* Captcha & Buttons */
+.captcha-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.captcha-display {
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--primary-color);
+    border: 1px solid #AAA;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-secondary {
+    background-color: #E0E0E0;
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: #CCC;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    display: block;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+}
+
+.btn-primary:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.btn-remove {
+    background: transparent;
+    border: 1px solid #888;
+    color: #555;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-remove:hover {
+    background-color: #f0f0f0;
+    border-color: #555;
+}
+
+.btn-remove:disabled {
+    background-color: transparent;
+    border-color: #CCC;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.loc-line {
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+.loc-line strong {
+    color: var(--primary-color);
+}
+
+/* Footer */
+.gov-footer {
+    background-color: var(--text-main);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* Modal / Popup */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.modal-content h2 {
+    color: var(--success);
+    margin-bottom: 10px;
+}
+
+.ack-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: var(--secondary-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+/* Viewer Card */
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    flex: 1;
+}
+
+.student-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.student-card-header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-card-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-group {
+    margin-bottom: 15px;
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.detail-value {
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
