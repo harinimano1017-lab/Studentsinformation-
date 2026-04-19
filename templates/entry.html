@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2 class="section-title">Student Data Entry Form</h2>
+    
+    <form id="studentForm">
+        <!-- Personal Details -->
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="name">Full Name <span style="color:red">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <div class="error-message" id="nameError">Only alphabets are allowed.</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="mobile">Mobile Number <span style="color:red">*</span></label>
+                <input type="text" id="mobile" name="mobile" placeholder="10-digit mobile number" maxlength="10" required>
+                <div class="error-message" id="mobileError">Enter a valid 10-digit number.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email ID <span style="color:red">*</span></label>
+            <div class="email-input-group">
+                <input type="text" id="email" name="email" placeholder="username" required>
+                <span class="email-suffix">@gmail.com</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address <span style="color:red">*</span></label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter your full address" required maxlength="200"></textarea>
+            <span class="char-counter"><span id="addressCounter">0</span>/200</span>
+        </div>
+
+        <!-- Location Details -->
+        <h3 class="section-title" style="font-size: 1.1rem; margin-top: 30px;">Location Details</h3>
+        <div class="grid-3">
+            <div class="form-group">
+                <label for="district">District <span style="color:red">*</span></label>
+                <select id="district" name="district" required>
+                    <option value="">Select District</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="taluk">Taluk <span style="color:red">*</span></label>
+                <select id="taluk" name="taluk" required disabled>
+                    <option value="">Select Taluk</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="village">Village <span style="color:red">*</span></label>
+                <select id="village" name="village" required disabled>
+                    <option value="">Select Village</option>
+                </select>
+            </div>
+        </div>
+        <div class="selection-display" id="locationDisplay" style="display: none;">
+            <div class="loc-line"><strong>District:</strong> <span id="displayDistrict"></span></div>
+            <div class="loc-line"><strong>Taluk:</strong> <span id="displayTaluk"></span></div>
+            <div class="loc-line"><strong>Village:</strong> <span id="displayVillage"></span></div>
+        </div>
+
+        <!-- Marks Details -->
+        <h3 class="section-title" style="font-size: 1.1rem; margin-top: 30px;">Mark Entry</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject Name</th>
+                    <th>Marks</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="subjectTableBody">
+                <tr class="subject-row">
+                    <td><input type="text" class="sub-name-input" placeholder="Enter subject name" required></td>
+                    <td>
+                        <div class="mark-input-wrapper">
+                            <input type="number" class="mark-input" min="0" max="100" required> / 100
+                        </div>
+                    </td>
+                    <td class="remark-cell">-</td>
+                    <td><button type="button" class="btn-remove" disabled>Remove</button></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        <button id="addSubjectBtn" type="button" class="btn btn-secondary" style="margin: 0; padding: 6px 15px; font-size: 0.95rem;">+ Add Subject</button>
+                    </td>
+                </tr>
+                <tr class="summary-row">
+                    <td>Total</td>
+                    <td colspan="3" id="totalMarks">0 / 0</td>
+                </tr>
+                <tr class="summary-row">
+                    <td>Average Percentage</td>
+                    <td colspan="3" id="averageMarks">0.00 %</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Captcha & Submit -->
+        <div style="max-width: 400px; margin: 40px auto 0;">
+            <div class="form-group">
+                <label>Security Verification (CAPTCHA)</label>
+                <div class="captcha-box">
+                    <div class="captcha-display" id="captchaImage">------</div>
+                    <button type="button" class="btn btn-secondary" id="refreshCaptcha">Refresh</button>
+                </div>
+                <input type="text" id="captchaInput" placeholder="Enter characters shown above" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+        </div>
+    </form>
+</div>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+        <h2>Application Submitted Successfully!</h2>
+        <p>Please note down your acknowledgement number for future reference.</p>
+        <div class="ack-number" id="modalAckNumber"></div>
+        <button class="btn btn-primary" onclick="window.location.reload()">New Registration</button>
+    </div>
+</div>
+{% endblock %}
