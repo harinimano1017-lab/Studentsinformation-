@@ -553,12 +553,13 @@ th {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
-        min-width: 100%;
+        width: 100%;
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
     
-    /* Ensure columns do not squish under 480px total */
-    table {
-        min-width: 480px;
+    th, td {
+        min-width: 120px;
     }
 
     .student-card-body {
