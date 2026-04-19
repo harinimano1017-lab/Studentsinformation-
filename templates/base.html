@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="gov-header">
+        <div class="header-content container">
+            <div class="logo-area">
+                <img src="{{ url_for('static', filename='national_emblem.png') }}" alt="National Emblem of India" class="national-emblem">
+                <h1>Department of School Education<br><span>Student Information Portal</span></h1>
+            </div>
+        </div>
+        <nav class="main-nav container">
+            <ul>
+                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">New Registration</a></li>
+                <li><a href="/view" class="{% if request.path == '/view' %}active{% endif %}">Search Records</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="gov-footer">
+        <div class="container">
+            <p>&copy; 2026 Department of School Education. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
