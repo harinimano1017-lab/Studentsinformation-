@@ -4,13 +4,39 @@ import random
 import string
 import json
 
+import os
+
 app = Flask(__name__)
 app.secret_key = 'super_secret_government_key'
-DATABASE = 'students.db'
 
 def get_db_connection():
-    conn = sqlite3.connect(DATABASE)
+    if os.environ.get('VERCEL'):
+        db_path = '/tmp/students.db'
+    else:
+        db_path = 'students.db'
+        
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
+    
+    # Ensure table exists for Vercel ephemeral instances
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS students (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            mobile TEXT NOT NULL,
+            email TEXT NOT NULL,
+            address TEXT NOT NULL,
+            district TEXT NOT NULL,
+            taluk TEXT NOT NULL,
+            village TEXT NOT NULL,
+            subjects TEXT NOT NULL,
+            total INTEGER NOT NULL,
+            average REAL NOT NULL,
+            acknowledgement_number TEXT UNIQUE NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
     return conn
 
 @app.route('/')
