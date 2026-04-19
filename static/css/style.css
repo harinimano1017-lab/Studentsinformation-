@@ -435,3 +435,44 @@ th {
     margin-top: 5px;
     display: none;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .main-nav {
+        overflow-x: auto;
+    }
+
+    .main-nav ul {
+        white-space: nowrap;
+    }
+
+    .student-card-body {
+        grid-template-columns: 1fr;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .captcha-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
